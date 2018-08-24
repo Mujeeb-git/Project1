@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="157" started-at="2018-08-17T05:30:49Z" finished-at="2018-08-17T05:30:49Z">
+  <suite name="Default suite" duration-ms="38520" started-at="2018-08-24T06:16:28Z" finished-at="2018-08-24T06:17:06Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="157" started-at="2018-08-17T05:30:49Z" finished-at="2018-08-17T05:30:49Z">
-      <class name="test.TestClass2">
-        <test-method status="PASS" signature="method1()[pri:0, instance:test.TestClass2@45820e51]" name="method1" duration-ms="29" started-at="2018-08-17T05:30:49Z" finished-at="2018-08-17T05:30:49Z">
+    <test name="Default test" duration-ms="38520" started-at="2018-08-24T06:16:28Z" finished-at="2018-08-24T06:17:06Z">
+      <class name="test.PropertiesFileTest">
+        <test-method status="PASS" signature="test_01()[pri:0, instance:test.PropertiesFileTest@4eb7f003]" name="test_01" duration-ms="38413" started-at="2018-08-24T06:16:28Z" finished-at="2018-08-24T06:17:06Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- method1 -->
-      </class> <!-- test.TestClass2 -->
-    </test> <!-- Test -->
-  </suite> <!-- Suite -->
+        </test-method> <!-- test_01 -->
+      </class> <!-- test.PropertiesFileTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

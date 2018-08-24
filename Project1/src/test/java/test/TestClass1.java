@@ -9,11 +9,15 @@ public class TestClass1 {
 	@Test
 	public void method1() {
 		
+		System.out.println(System.getProperty("user.dir"));
+		
 		objEO  = new ExcelOperations();
 		
 		for(int i=0;i<10;i++) {
 			
 			System.out.println(objEO.readExcel("Sheet1", i, 0)+"\n");
+			
+			objEO.writeExcel("Sheet1", i, 0);
 		}
 		
 	}
