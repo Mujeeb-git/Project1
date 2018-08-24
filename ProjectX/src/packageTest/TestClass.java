@@ -10,7 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
 public class TestClass {
-	
+	WebDriver driver;
 
 	@Test
 	public void attendance() throws Exception {
@@ -30,7 +30,7 @@ public class TestClass {
 		System.out.println("userName, "+userName+"\npassword, "+password+"\nurl :"+url);
 		
 		System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"//Drivers//chromedriver.exe");
-		WebDriver driver = new ChromeDriver();
+		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get(url);
 		Thread.sleep(10000);
@@ -46,11 +46,18 @@ public class TestClass {
 		if(HelperClass.currentHour()<10) {
 			
 			System.out.println("This is the morning session attendance");
-			
+			String xpath1 = "//*[@id='col_center_big']/form/table/tbody/tr[3]/td[2]/input";
+			String xpath2 = "//*[@id='col_center_big']/form/table/tbody/tr[3]/td[3]";
+			System.out.println("Attendance is marked successfully with timeStamp: "+HelperClass.markAttendance(driver, xpath1, xpath2));
 		}
 		else {
 			
 			System.out.println("This is the evening session attendance");
+			String xpath1 = "//*[@id='col_center_big']/form/table/tbody/tr[3]/td[4]/input";
+			String xpath2 = "//*[@id='pageWrap']/div/ul/li[1]/div/table/tbody/tr/td/a";			
+			System.out.println("Attendance is marked successfully with timeStamp: "+HelperClass.markAttendance(driver, xpath1, xpath2));
+			
+			
 		}
 		
 	}
