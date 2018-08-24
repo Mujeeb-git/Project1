@@ -58,7 +58,7 @@ public class TestClass {
 		}
 		else {
 			String xpath2 = "//*[@id='col_center_big']/form/table/tbody/tr[3]/td[5]";
-			if(driver.findElement(By.xpath("//*[@id='col_center_big']/form/table/tbody/tr[3]/td[2]")).getText()=="Marked") {
+			if(driver.findElement(By.xpath("//*[@id='col_center_big']/form/table/tbody/tr[3]/td[4]")).getText()=="Marked") {
 				System.out.println("Attendance is already marked at: "+HelperClass.getMarkedTime(driver, xpath2));
 			}
 			else {
