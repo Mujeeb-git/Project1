@@ -44,18 +44,25 @@ public class TestClass {
 		Thread.sleep(2000);
 		
 		if(HelperClass.currentHour()<10) {
-			
+			String xpath2 = "//*[@id='col_center_big']/form/table/tbody/tr[3]/td[3]";
+			if(driver.findElement(By.xpath("//*[@id='col_center_big']/form/table/tbody/tr[3]/td[2]")).getText()=="Marked") {
+				System.out.println("Attendance is already marked at: "+HelperClass.getMarkedTime(driver, xpath2));
+			}
 			System.out.println("This is the morning session attendance");
 			String xpath1 = "//*[@id='col_center_big']/form/table/tbody/tr[3]/td[2]/input";
-			String xpath2 = "//*[@id='col_center_big']/form/table/tbody/tr[3]/td[3]";
-			System.out.println("Attendance is marked successfully with timeStamp: "+HelperClass.markAttendance(driver, xpath1, xpath2));
+			
+			HelperClass.markAttendance(driver, xpath1);			
+			System.out.println("Attendance is marked successfully with timeStamp: "+HelperClass.getMarkedTime(driver, xpath2));
 		}
 		else {
-			
+			String xpath2 = "//*[@id='col_center_big']/form/table/tbody/tr[3]/td[5]";
+			if(driver.findElement(By.xpath("//*[@id='col_center_big']/form/table/tbody/tr[3]/td[2]")).getText()=="Marked") {
+				System.out.println("Attendance is already marked at: "+HelperClass.getMarkedTime(driver, xpath2));
+			}
 			System.out.println("This is the evening session attendance");
 			String xpath1 = "//*[@id='col_center_big']/form/table/tbody/tr[3]/td[4]/input";
-			String xpath2 = "//*[@id='pageWrap']/div/ul/li[1]/div/table/tbody/tr/td/a";			
-			System.out.println("Attendance is marked successfully with timeStamp: "+HelperClass.markAttendance(driver, xpath1, xpath2));
+			HelperClass.markAttendance(driver, xpath1);			
+			System.out.println("Attendance is marked successfully with timeStamp: "+HelperClass.getMarkedTime(driver, xpath2));
 			
 			
 		}

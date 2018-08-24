@@ -21,13 +21,21 @@ public class HelperClass {
 		return hr;
 	}
 	
-	public static String markAttendance(WebDriver driver,String xpath1, String xpath2) throws Exception {
+	public static void markAttendance(WebDriver driver,String xpath1) throws Exception {
 		
 		driver.findElement(By.xpath(xpath1)).click();
 		Thread.sleep(3000);
 		driver.switchTo().alert().accept();
 		Thread.sleep(2000);
 		driver.navigate().refresh();
+		//record time
+		Thread.sleep(2000);
+		
+	}
+	
+public static String getMarkedTime(WebDriver driver,String xpath2) throws Exception {
+		
+		
 		//record time
 		Thread.sleep(2000);
 		driver.findElement(By.id("aid")).click();
