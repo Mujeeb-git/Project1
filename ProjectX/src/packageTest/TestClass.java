@@ -48,22 +48,25 @@ public class TestClass {
 			if(driver.findElement(By.xpath("//*[@id='col_center_big']/form/table/tbody/tr[3]/td[2]")).getText()=="Marked") {
 				System.out.println("Attendance is already marked at: "+HelperClass.getMarkedTime(driver, xpath2));
 			}
+			else {
 			System.out.println("This is the morning session attendance");
 			String xpath1 = "//*[@id='col_center_big']/form/table/tbody/tr[3]/td[2]/input";
 			
 			HelperClass.markAttendance(driver, xpath1);			
 			System.out.println("Attendance is marked successfully with timeStamp: "+HelperClass.getMarkedTime(driver, xpath2));
+			}
 		}
 		else {
 			String xpath2 = "//*[@id='col_center_big']/form/table/tbody/tr[3]/td[5]";
 			if(driver.findElement(By.xpath("//*[@id='col_center_big']/form/table/tbody/tr[3]/td[2]")).getText()=="Marked") {
 				System.out.println("Attendance is already marked at: "+HelperClass.getMarkedTime(driver, xpath2));
 			}
+			else {
 			System.out.println("This is the evening session attendance");
 			String xpath1 = "//*[@id='col_center_big']/form/table/tbody/tr[3]/td[4]/input";
 			HelperClass.markAttendance(driver, xpath1);			
 			System.out.println("Attendance is marked successfully with timeStamp: "+HelperClass.getMarkedTime(driver, xpath2));
-			
+			}
 			
 		}
 		
