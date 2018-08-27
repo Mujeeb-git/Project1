@@ -38,8 +38,8 @@ public static String getMarkedTime(WebDriver driver,String xpath2) throws Except
 		
 		//record time
 		Thread.sleep(2000);
-		driver.findElement(By.id("aid")).click();
-		Thread.sleep(2000);
+		/*driver.findElement(By.id("aid")).click();
+		Thread.sleep(2000);*/
 		driver.findElement(By.xpath("//*[@id='pageWrap']/div/ul/li[1]/div/table/tbody/tr/td/a")).click();
 		Thread.sleep(2000);
 		String message = driver.findElement(By.xpath(xpath2)).getText();

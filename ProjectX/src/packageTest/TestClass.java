@@ -14,22 +14,22 @@ public class TestClass {
 
 	@Test
 	public void attendance() throws Exception {
-		
+
 		Properties prop = new Properties();
-		
+
 		File file = new File(System.getProperty("user.dir") + "//DataSource//Datafile.properties");
 
 		FileInputStream fis = new FileInputStream(file);
-		
+
 		prop.load(fis);
-		
+
 		String userName = prop.getProperty("username");
 		String password = prop.getProperty("password");
 		String url = prop.getProperty("url");
-		
-		System.out.println("userName, "+userName+"\npassword, "+password+"\nurl :"+url);
-		
-		System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"//Drivers//chromedriver.exe");
+
+		System.out.println("userName, " + userName + "\npassword, " + password + "\nurl :" + url);
+
+		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "//Drivers//chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get(url);
@@ -42,33 +42,41 @@ public class TestClass {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//*[@id='pageWrap']/div/ul/li[1]/div/table/tbody/tr/td/a")).click();
 		Thread.sleep(2000);
-		
-		if(HelperClass.currentHour()<10) {
+		// mark attendance for morning or evening based on whether the current hour is
+		// less than 10 or not
+		if (HelperClass.currentHour() < 10) {
+			// morning attendance:::
 			String xpath2 = "//*[@id='col_center_big']/form/table/tbody/tr[3]/td[3]";
-			if(driver.findElement(By.xpath("//*[@id='col_center_big']/form/table/tbody/tr[3]/td[2]")).getText()=="Marked") {
-				System.out.println("Attendance is already marked at: "+HelperClass.getMarkedTime(driver, xpath2));
+			if (driver.findElement(By.xpath("//*[@id='col_center_big']/form/table/tbody/tr[3]/td[2]")).getText()
+					.equalsIgnoreCase("Marked")) {
+				// morning attendance already marked
+				System.out.println("Morning attendance is already marked at: " + HelperClass.getMarkedTime(driver, xpath2));
+			} else {
+				// morning attendance marking
+				System.out.println("This is the morning session attendance");
+				String xpath1 = "//*[@id='col_center_big']/form/table/tbody/tr[3]/td[2]/input";
+
+				HelperClass.markAttendance(driver, xpath1);
+				System.out.println("Attendance is marked successfully with timeStamp: "
+						+ HelperClass.getMarkedTime(driver, xpath2));
 			}
-			else {
-			System.out.println("This is the morning session attendance");
-			String xpath1 = "//*[@id='col_center_big']/form/table/tbody/tr[3]/td[2]/input";
-			
-			HelperClass.markAttendance(driver, xpath1);			
-			System.out.println("Attendance is marked successfully with timeStamp: "+HelperClass.getMarkedTime(driver, xpath2));
-			}
-		}
-		else {
+		} else {
+			// evening attendance:::
 			String xpath2 = "//*[@id='col_center_big']/form/table/tbody/tr[3]/td[5]";
-			if(driver.findElement(By.xpath("//*[@id='col_center_big']/form/table/tbody/tr[3]/td[4]")).getText()=="Marked") {
-				System.out.println("Attendance is already marked at: "+HelperClass.getMarkedTime(driver, xpath2));
+			if (driver.findElement(By.xpath("//*[@id='col_center_big']/form/table/tbody/tr[3]/td[4]")).getText()
+					.equalsIgnoreCase("Marked")) {
+				// evening attendance marked
+				System.out.println("Attendance is already marked at: " + HelperClass.getMarkedTime(driver, xpath2));
+			} else {
+				// evening attendance marking
+				System.out.println("This is the evening session attendance");
+				String xpath1 = "//*[@id='col_center_big']/form/table/tbody/tr[3]/td[4]/input";
+				HelperClass.markAttendance(driver, xpath1);
+				System.out.println("Evening attendance is marked successfully with timeStamp: "
+						+ HelperClass.getMarkedTime(driver, xpath2));
 			}
-			else {
-			System.out.println("This is the evening session attendance");
-			String xpath1 = "//*[@id='col_center_big']/form/table/tbody/tr[3]/td[4]/input";
-			HelperClass.markAttendance(driver, xpath1);			
-			System.out.println("Attendance is marked successfully with timeStamp: "+HelperClass.getMarkedTime(driver, xpath2));
-			}
-			
+
 		}
-		
+
 	}
 }
