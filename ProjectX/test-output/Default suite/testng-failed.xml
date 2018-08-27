@@ -3,11 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="packageTest.HelperClass">
+      <class name="packageTest.TestClass">
         <methods>
-          <include name="currentHour"/>
+          <include name="attendance"/>
         </methods>
-      </class> <!-- packageTest.HelperClass -->
+      </class> <!-- packageTest.TestClass -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
