@@ -1,10 +1,16 @@
 package packageTest;
 
+import java.io.File;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
 public class HelperClass {
@@ -47,5 +53,22 @@ public class HelperClass {
 		return message;
 
 	}
+	
+	public static void takeScreenshot(WebDriver driver) throws Exception {
+		
+		File src = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(src, new File("C:\\Users\\mujeeb.mohammed\\Pictures\\attendanceScreenshots\\ITP_"+dateString2()+".png"));
+	}
+
+	// Retrieve current date in the yyyyMMddHHmmss format
+		public static String dateString2() {
+			// Date to String
+			DateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
+			Date date = new Date();
+			String d = dateFormat.format(date);
+			// Reporter.log("The current date is "+d,true);
+			return d;
+
+		}
 
 }

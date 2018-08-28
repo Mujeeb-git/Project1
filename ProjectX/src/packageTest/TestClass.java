@@ -77,6 +77,11 @@ public class TestClass {
 			}
 
 		}
+		Thread.sleep(2000);
+		HelperClass.takeScreenshot(driver);
+		driver.findElement(By.xpath("//a[text()='Log Out']")).click();
+		Thread.sleep(2000);
+		driver.close();		
 
 	}
 }

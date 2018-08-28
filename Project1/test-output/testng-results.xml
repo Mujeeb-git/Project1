@@ -2,16 +2,20 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="38520" started-at="2018-08-24T06:16:28Z" finished-at="2018-08-24T06:17:06Z">
+  <suite name="Default suite" duration-ms="56653" started-at="2018-08-27T10:11:10Z" finished-at="2018-08-27T10:12:06Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="38520" started-at="2018-08-24T06:16:28Z" finished-at="2018-08-24T06:17:06Z">
-      <class name="test.PropertiesFileTest">
-        <test-method status="PASS" signature="test_01()[pri:0, instance:test.PropertiesFileTest@4eb7f003]" name="test_01" duration-ms="38413" started-at="2018-08-24T06:16:28Z" finished-at="2018-08-24T06:17:06Z">
+    <test name="Default test" duration-ms="56653" started-at="2018-08-27T10:11:10Z" finished-at="2018-08-27T10:12:06Z">
+      <class name="test.DataDrivenTests">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:test.DataDrivenTests@757942a1]" name="setUp" is-config="true" duration-ms="21513" started-at="2018-08-27T10:11:10Z" finished-at="2018-08-27T10:11:31Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- test_01 -->
-      </class> <!-- test.PropertiesFileTest -->
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="searchFlight()[pri:0, instance:test.DataDrivenTests@757942a1]" name="searchFlight" duration-ms="34472" started-at="2018-08-27T10:11:32Z" finished-at="2018-08-27T10:12:06Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- searchFlight -->
+      </class> <!-- test.DataDrivenTests -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
