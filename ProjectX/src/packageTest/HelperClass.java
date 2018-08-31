@@ -30,24 +30,26 @@ public class HelperClass {
 	public static void markAttendance(WebDriver driver, String xpath1) throws Exception {
 
 		driver.findElement(By.xpath(xpath1)).click();
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		driver.switchTo().alert().accept();
-		Thread.sleep(2000);
+		Thread.sleep(10000);
+		takeScreenshot(driver);
 		driver.navigate().refresh();
 		// record time
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 
 	}
 
 	public static String getMarkedTime(WebDriver driver, String xpath2) throws Exception {
 
 		// record time
-		Thread.sleep(2000);
+		Thread.sleep(5000);
+		takeScreenshot(driver);
 		/*
 		 * driver.findElement(By.id("aid")).click(); Thread.sleep(2000);
 		 */
 		driver.findElement(By.xpath("//*[@id='pageWrap']/div/ul/li[1]/div/table/tbody/tr/td/a")).click();
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		String message = driver.findElement(By.xpath(xpath2)).getText();
 
 		return message;
