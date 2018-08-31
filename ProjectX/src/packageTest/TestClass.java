@@ -56,7 +56,7 @@ public class TestClass {
 				String status = driver.findElement(By.xpath("//*[@id='col_center_big']/form/table/tbody/tr[3]/td[2]")).getText();
 				if ((status.equalsIgnoreCase("Marked"))||(status.equalsIgnoreCase("Time Up"))||(status.equalsIgnoreCase("Not Opened"))) {
 					// morning attendance already marked
-					System.out.println("Morning attendance Status is : " + HelperClass.getMarkedTime(driver, xpath2));
+					System.out.println("Attendance "+status+ ": " + HelperClass.getMarkedTime(driver, xpath2));
 				} else {
 					// morning attendance marking
 					System.out.println("This is the morning session attendance");
@@ -72,13 +72,13 @@ public class TestClass {
 				String status2 = driver.findElement(By.xpath("//*[@id='col_center_big']/form/table/tbody/tr[3]/td[4]")).getText();
 				if ((status2.equalsIgnoreCase("Marked"))||(status2.equalsIgnoreCase("Time Up"))||(status2.equalsIgnoreCase("Not Opened"))) {
 					// evening attendance marked
-					System.out.println("Attendance is already marked at: " + HelperClass.getMarkedTime(driver, xpath3));
+					System.out.println("Attendance "+status2+ ": " + HelperClass.getMarkedTime(driver, xpath3));
 				} else {
 					// evening attendance marking
 					System.out.println("This is the evening session attendance");
 					String xpath1 = "//*[@id='col_center_big']/form/table/tbody/tr[3]/td[4]/input";
 					HelperClass.markAttendance(driver, xpath1);
-					System.out.println("Evening attendance Status is : "
+					System.out.println("Evening attendance Status is :"
 							+ HelperClass.getMarkedTime(driver, xpath3));
 				}
 
